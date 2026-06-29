@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTask - O'quvchilar uchun rejalashtiruvchi</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app" class="light-mode">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>EduTask</h2>
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="switchTab('home')"><i class="fa-solid fa-house"></i> Bosh sahifa</button>
+                <button class="nav-btn" onclick="switchTab('tasks')"><i class="fa-solid fa-list-check"></i> Vazifalar</button>
+                <button class="nav-btn" onclick="switchTab('profile')"><i class="fa-solid fa-user"></i> Profil</button>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-btn" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i> Tungi rejim</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="home-tab" class="tab-content active">
+    <header>
+        <h1>Xush kelibsiz, Abdurahmon!</h1>
+        <p>Bugungi darslaringiz va qisqa statistika</p>
+    </header>
+    <div class="stats-container">
+        <div class="stat-card"><h3>Jami darslar</h3><p id="lesson-count">0 ta</p></div>
+        <div class="stat-card"><h3>Bajarilgan vazifalar</h3><p id="done-count">0 ta</p></div>
+    </div>
+    
+    <div class="timetable" style="margin-bottom: 20px;">
+        <h2><i class="fa-solid fa-plus"></i> Yangi dars qo'shish</h2>
+        <div class="task-input-group" style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px;">
+            <input type="time" id="lesson-time">
+            <input type="text" id="lesson-name" placeholder="Dars nomi (Masalan: Fizika)">
+            <input type="text" id="lesson-room" placeholder="Xona (Masalan: 302)">
+            <button onclick="addLesson()">Qo'shish</button>
+        </div>
+    </div>
+
+    <div class="timetable">
+        <h2><i class="fa-solid fa-calendar-day"></i> Bugungi dars jadvali</h2>
+        <ul id="lesson-list" class="task-list">
+            </ul>
+    </div>
+</section>
+            <section id="home-tab" class="tab-content active">
+                <header>
+                    <h1>Xush kelibsiz, Abdurahmon!</h1>
+                    <p>Bugungi darslaringiz va qisqa statistika</p>
+                </header>
+                <div class="stats-container">
+                    <div class="stat-card"><h3>Bugungi darslar</h3><p>4 ta dars</p></div>
+                    <div class="stat-card"><h3>Bajarilgan vazifalar</h3><p id="done-count">0 ta</p></div>
+                </div>
+                <div class="timetable">
+                    <h2><i class="fa-solid fa-calendar-day"></i> Bugungi dars jadvali</h2>
+                    <ul>
+                        <li><span>08:30</span> <strong>Matematika</strong> (302-xona)</li>
+                        <li><span>09:20</span> <strong>Ona tili</strong> (105-xona)</li>
+                        <li><span>10:10</span> <strong>Informatika</strong> (Kompyuter xonasi)</li>
+                        <li><span>11:00</span> <strong>Tarix</strong> (204-xona)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="tasks-tab" class="tab-content">
+                <header>
+                    <h1>Vazifalar ro'yxati</h1>
+                    <p>Uy vazifalarini shu yerda boshqaring</p>
+                </header>
+                <div class="task-input-group">
+                    <input type="text" id="task-input" placeholder="Yangi vazifa qo'shing...">
+                    <button onclick="addTask()"><i class="fa-solid fa-plus"></i> Qo'shish</button>
+                </div>
+                <ul id="task-list" class="task-list">
+                    </ul>
+            </section>
+
+            <section id="profile-tab" class="tab-content">
+                <header>
+                    <h1>Mening profilim</h1>
+                    <p>Sozlamalar va shaxsiy ma'lumotlar</p>
+                </header>
+                <div class="profile-card">
+                    <div class="avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h2>Abdurahmon</h2>
+                    <p>O'quvchi / Talaba</p>
+                    <hr>
+                    <div class="profile-info">
+                        <p><strong>Ta'lim muassasasi:</strong> 1-maktab / Universitet</p>
+                        <p><strong>Guruh/Sinf:</strong> 11-A</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
